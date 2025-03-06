@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XMYKEP videos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #121212;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+    header {
+      width: 100%;
+      padding: 15px;
+      box-sizing: border-box;
+      background-color: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    header input {
+      padding: 8px;
+      font-size: 16px;
+      width: 90%;
+      max-width: 400px;
+    }
+    .menu {
+      position: absolute;
+      top: 5px;
+      right: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .menu-button {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    .menu-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 38px;
+      flex-direction: column;
+      background-color: #333;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    .menu-content a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+    }
+    .menu-content a:hover {
+      text-decoration: underline;
+    }
+    .menu-content a img {
+      margin-right: 8px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .video-item {
+      background: #333;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .video-item video {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+    .not-found {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+      header input {
+        width: 90%;
+        max-width: 400px;
+      }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 601px) {
+      header input {
+        width: 50%;
+        max-width: 600px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>XMYKEP videos</h1>
+    <input type="text" id="search" placeholder="Search videos..." onkeyup="searchVideos()" />
+    <div class="menu">
+      <button class="menu-button" onclick="toggleMenu()">☰</button>
+      <div class="menu-content" id="menuContent">
+        <a href="https://t.me/XMYKEPVIDEOS">
+          <img src="RESOURCE/CSlogo.png" alt="Customer Service" width="24" height="24" />
+          Customer Service
+        </a>
+        <a href="https://drive.google.com/drive/folders/1Xdm4m7Napcma_t02VyDucgdT8S8OurNc?usp=sharing" target="_blank">
+          <img src="RESOURCE/UPLOADlogo.png" alt="Google Drive" width="24" height="24" />
+          Upload Foto/Vidio
+        </a>
+        <a href="history.html">
+          <img src="RESOURCE/HISTORYlogo.jpg" alt="History" width="24" height="24" />
+          History
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="video-grid" id="videoContainer">
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content8.mp4')">
+          <source src="CONTENT/content8.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content7.mp4')">
+          <source src="CONTENT/content7.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content6.mp4')">
+          <source src="CONTENT/content6.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,stepmom,son,fuck,creampie">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content5.mp4')">
+          <source src="CONTENT/content5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,stepmom,son,fuck,creampie">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content4.mp4')">
+          <source src="CONTENT/content4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,hardcore">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content3.mp4')">
+          <source src="CONTENT/content3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="sex,cute,creampie,america">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content2.mp4')">
+          <source src="CONTENT/content2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="sex,cute,creampie,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content1.mp4')">
+          <source src="CONTENT/content1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="not-found" id="notFoundMessage">Mohon maaf, video yang Anda cari tidak ditemukan.</p>
+    </div>
+  </main>
+
+  <script>
+    function pauseOtherVideos(currentVideo) {
+      document.querySelectorAll("video").forEach((video) => {
+        if (video !== currentVideo) video.pause();
+      });
+    }
+
+    function closeMenu() {
+      const menuContent = document.getElementById("menuContent");
+      menuContent.style.display = 'none';
+    }
+
+    const bannedKeywords = ["anak", "bocil","bocah" ,"sd","pemerkosa" ,"perkosa" ,"lgbt" ,"gay","transgender","rudapaksa","pedofil" ,"bunuh" ,"mati" ,"cilbo"         ];
+    function searchVideos() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const videoItems = document.querySelectorAll(".video-item");
+      const notFoundMessage = document.getElementById("notFoundMessage");
+      
+      // Redirect to pedoman.html if banned keyword is found
+      for (const keyword of bannedKeywords) {
+        if (input.includes(keyword)) {
+          window.location.href = "pedoman.html";
+          return;
+        }
+      }
+
+      let found = false;
+      videoItems.forEach((item) => {
+        const title = item.dataset.title.toLowerCase();
+        item.style.display = title.includes(input) ? "block" : "none";
+        if (title.includes(input)) found = true;
+      });
+
+      notFoundMessage.style.display = found ? "none" : "block";
+    }
+
+    function toggleMenu() {
+      const menuContent = document.getElementById("menuContent");
+      menuContent.style.display = menuContent.style.display === "block" ? "none" : "block";
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menuContent = document.getElementById("menuContent");
+      const menuButton = document.querySelector('.menu-button');
+
+      if (!menuContent.contains(event.target) && !menuButton.contains(event.target)) {
+        menuContent.style.display = 'none';
+      }
+    });
+
+    function saveHistory(videoSrc) {
+      let history = JSON.parse(localStorage.getItem('history')) || [];
+      const timestamp = new Date().toISOString();
+      const videoItem = { videoSrc, timestamp };
+      history.unshift(videoItem);
+      if (history.length > 10) {
+        history.pop();
+      }
+      localStorage.setItem('history', JSON.stringify(history));
+    }
+  </script>
+</body>
+</html>
