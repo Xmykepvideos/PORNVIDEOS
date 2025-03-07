@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XMYKEP videos</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #121212;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    header {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #1e1e1e;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+      font-weight: 500;
+      color: #ffffff;
+      font-family: 'Roboto', sans-serif;
+    }
+    header input {
+      padding: 10px 15px;
+      font-size: 16px;
+      width: 100%;
+      max-width: 600px;
+      border: none;
+      border-radius: 25px;
+      background: #333;
+      color: #ffffff;
+      outline: none;
+      transition: background 0.3s;
+      margin-left: 20px;
+    }
+    header input::placeholder {
+      color: #aaaaaa;
+    }
+    header input:focus {
+      background: #444;
+    }
+    .menu {
+      position: relative;
+    }
+    .menu-button {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .menu-button:hover {
+      background: #444;
+    }
+    .menu-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 50px;
+      flex-direction: column;
+      background-color: rgba(30, 30, 30, 0.9);
+      backdrop-filter: blur(10px);
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+    .menu-content a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: flex;
+      align-items: center;
+      border-radius: 5px;
+      background: rgba(50, 50, 50, 0.9);
+      margin: 5px 0;
+      transition: background 0.3s;
+    }
+    .menu-content a:hover {
+      background: rgba(70, 70, 70, 0.9);
+    }
+    .menu-content a img {
+      margin-right: 8px;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* Default to single column */
+      gap: 20px;
+      padding: 20px;
+      width: 100%;
+      max-width: 1200px;
+      box-sizing: border-box;
+    }
+    .video-item {
+      background: #333;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .video-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .video-item video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .not-found {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: #ffffff;
+    }
+    @media (min-width: 601px) {
+      .video-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+      }
+    }
+    @media (max-width: 600px) {
+      .header-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      header input {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 90%;
+      }
+      .menu {
+        right: 10px;
+        position: absolute;
+        top: 10px; /* Adjusted position for mobile devices */
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>XMYKEP videos</h1>
+      <input type="text" id="search" placeholder="Search videos..." onkeyup="searchVideos()" />
+    </div>
+    <div class="menu">
+      <button class="menu-button" onclick="toggleMenu()">☰</button>
+      <div class="menu-content" id="menuContent">
+        <a href="https://t.me/XMYKEPVIDEOS">
+          <img src="RESOURCE/CSlogo.png" alt="Customer Service" width="24" height="24" />
+          Customer Service
+        </a>
+        <a href="https://drive.google.com/drive/folders/1Xdm4m7Napcma_t02VyDucgdT8S8OurNc?usp=sharing" target="_blank">
+          <img src="RESOURCE/UPLOADlogo.png" alt="Google Drive" width="24" height="24" />
+          Upload Foto/Vidio
+        </a>
+        <a href="pengembangan.html">
+          <img src="RESOURCE/HISTORYlogo.jpg" alt="History" width="24" height="24" />
+          History
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="video-grid" id="videoContainer">
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content8.mp4')">
+          <source src="CONTENT/content8.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content7.mp4')">
+          <source src="CONTENT/content7.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="hentai,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content6.mp4')">
+          <source src="CONTENT/content6.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,stepmom,son,fuck,creampie">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content5.mp4')">
+          <source src="CONTENT/content5.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,stepmom,son,fuck,creampie">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content4.mp4')">
+          <source src="CONTENT/content4.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="japanese,hardcore">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content3.mp4')">
+          <source src="CONTENT/content3.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="sex,cute,creampie,america">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content2.mp4')">
+          <source src="CONTENT/content2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="video-item" data-title="sex,cute,creampie,japanese">
+        <video controls onplay="pauseOtherVideos(this); closeMenu(); saveHistory('CONTENT/content1.mp4')">
+          <source src="CONTENT/content1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p class="not-found" id="notFoundMessage">Mohon maaf, video yang Anda cari tidak ditemukan.</p>
+    </div>
+  </main>
+
+  <script>
+    function pauseOtherVideos(currentVideo) {
+      document.querySelectorAll("video").forEach((video) => {
+        if (video !== currentVideo) video.pause();
+      });
+    }
+
+    function toggleMenu() {
+      const menuContent = document.getElementById("menuContent");
+      menuContent.style.display = menuContent.style.display === "block" ? "none" : "block";
+    }
+
+    function closeMenu() {
+      const menuContent = document.getElementById("menuContent");
+      menuContent.style.display = 'none';
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      const menuContent = document.getElementById("menuContent");
+      const menuButton = document.querySelector('.menu-button');
+
+      if (!menuContent.contains(event.target) && !menuButton.contains(event.target)) {
+        menuContent.style.display = 'none';
+      }
+    });
+
+    const bannedKeywords = ["anak", "bocil","bocah" ,"sd","pemerkosa" ,"perkosa" ,"lgbt" ,"gay","transgender","rudapaksa","pedofil" ,"bunuh" ,"mati" ,"cilbo"];
+    function searchVideos() {
+      const input = document.getElementById("search").value.toLowerCase();
+      const videoItems = document.querySelectorAll(".video-item");
+      const notFoundMessage = document.getElementById("notFoundMessage");
+      
+      // Redirect to pedoman.html if banned keyword is found
+      for (const keyword of bannedKeywords) {
+        if (input.includes(keyword)) {
+          window.location.href = "pedoman.html";
+          return;
+        }
+      }
+
+      let found = false;
+      videoItems.forEach((item) => {
+        const title = item.dataset.title.toLowerCase();
+        item.style.display = title.includes(input) ? "block" : "none";
+        if (title.includes(input)) found = true;
+      });
+
+      notFoundMessage.style.display = found ? "none" : "block";
+    }
+
+    function saveHistory(videoSrc) {
+      let history = JSON.parse(localStorage.getItem('history')) || [];
+      const timestamp = new Date().toISOString();
+      const videoItem = { videoSrc, timestamp };
+      history.unshift(videoItem);
+      if (history.length > 10) {
+        history.pop();
+      }
+      localStorage.setItem('history', JSON.stringify(history));
+    }
+  </script>
+</body>
+</html>
